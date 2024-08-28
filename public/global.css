@@ -1,3 +1,9 @@
+:root {
+  --card-height: 40vw;
+  --card-margin: 4vw;
+  --card-top-offset: 1em;
+  --outline-width: 0px;
+}
 html,
 body {
   position: relative;

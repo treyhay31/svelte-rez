@@ -1,6 +1,8 @@
 <script>
   //TODO: create svg in procreate for favicon and maybe other images on the site
   //TODO: find profile picture of me being old
+  import CallLink from "./components/CallLink.svelte";
+  import EmailLink from "./components/EmailLink.svelte";
   //TODO: at least try a background slowmotion video
   const rez = {
     meta: {
@@ -15,7 +17,7 @@
       phone: "(703) 994-8268",
       website: "https://go.treyhay.com/resume-download",
       summary:
-        "Can I interest you in some automation?! I am a full-stack polyglot software engineer who gets excited to save button clicks! I favor .NET and the backend side of software but mostly enjoy collaborating with smart people on difficult problems!",
+        "I'll solve your problems, I'll motivate your team members, and I'll do it all with a GREAT attitude! I love working hard and I love encouraging my teammates! When everyone can work together towards putting a smile on the customer's face, we all WIN!",
       location: {
         address: "9461 Assembly Way",
         postalCode: "23116",
@@ -38,6 +40,8 @@
     },
     work: [
       {
+        pic: "usbank-dark.png",
+        picAlt: "U.S. Bank logo",
         position: "Lead Software Engineer",
         company: "U.S. Bank",
         startDate: "2019",
@@ -59,8 +63,10 @@
         ],
       },
       {
+        pic: "captech-dark.png",
+        picAlt: "CapTech logo",
         position: "Senior Consultant",
-        company: "CapTech Ventures, Inc",
+        company: "CapTech",
         startDate: "2019",
         endDate: "2019",
         summary:
@@ -73,6 +79,8 @@
         ],
       },
       {
+        pic: "dfa.jpg",
+        picAlt: "Dimensional Fund Advisors logo",
         position: "Software Developer",
         company: "Dimensional Fund Advisors",
         startDate: "2017",
@@ -87,6 +95,8 @@
         ],
       },
       {
+        pic: "usbank-dark.png",
+        picAlt: "U.S. Bank logo (acquired ETS)",
         position: "Software Developer",
         company: "ETS: Electronic Transaction Systems",
         startDate: "2013",
@@ -100,6 +110,8 @@
         ],
       },
       {
+        pic: "deloitte.png",
+        picAlt: "Deloitte logo",
         position: "Consultant",
         company: "Deloitte",
         startDate: "2011",
@@ -137,6 +149,32 @@
           "Java",
           "Powershell",
           "SQL",
+          "Bash",
+          "Python",
+          "Batch",
+        ],
+      },
+      {
+        name: "DevOps",
+        level: "Proficient",
+        keywords: [
+          "Jenkins",
+          "Terraform",
+          "Docker",
+          "Kubernetes",
+          "VirtualBox",
+        ],
+      },
+      {
+        name: "Testing",
+        level: "Proficient",
+        keywords: [
+          "Playwright",
+          "Selenium",
+          "Jest",
+          "XUnit",
+          "MSTest",
+          "Postman",
         ],
       },
     ],
@@ -158,57 +196,126 @@
     ],
     references: [],
   };
+  let scrollY;
+  // $: console.log(scrollY);
+  let randomNumber = Math.floor(Math.random() * 6);
+  const profilePics = [
+    "profile-1.png",
+    "profile-2.png",
+    "profile-3.png",
+    "profile-4.png",
+    "profile-5.png",
+    "profile-6.jpg",
+  ];
+  console.log(randomNumber, profilePics[randomNumber]);
 </script>
 
-<main>
-  <section id="sticky-parallax-header">
-    <h1>
+<svelte:window bind:scrollY />
+
+<header id="sticky-parallax-header">
+  {#if scrollY < 615}
+    <h1 class="fade-in">
       Hi, I'm {rez.basics.name}.
       <br />
       No, the honor is all mine!
     </h1>
-  </section>
+  {:else if scrollY >= 615 && scrollY < 1600}
+    <h1 class="fade-in">Stuff I've done... and still do!</h1>
+  {:else if scrollY >= 1600 && scrollY < 2400}
+    <h1 class="fade-in">This is the stuff I have a hard time remembering</h1>
+  {:else}
+    <h1 class="fade-in">...That's about it!</h1>
+  {/if}
+</header>
+<main>
   <section class="work">
-    <h2>
-      Here is the stuff I did... (and still do but just soOoOo much better now!)
-    </h2>
     <ul id="cards">
       {#each rez.work as job, index}
         <li class="card" id="card_{index}">
-          <article>
-            <h3>{job.position}</h3>
-            <h4>{job.company}</h4>
-            <p>{job.startDate} - {job.endDate}</p>
-            <p>{job.summary}</p>
-            <ul>
-              {#each job.highlights as highlight}
-                <li>{highlight}</li>
-              {/each}
-            </ul>
+          <article class="card__content">
+            <div>
+              <h3>
+                {job.position}, {job.company}
+                ({job.startDate} - {job.endDate})
+              </h3>
+              <p>{job.summary}</p>
+              <ul>
+                {#each job.highlights as highlight}
+                  <li>{highlight}</li>
+                {/each}
+              </ul>
+            </div>
+            <img src="images/{job.pic}" alt={job.picAlt} />
           </article>
         </li>
       {/each}
     </ul>
   </section>
-  <section class="me">
-    <h2>{rez.basics.label}</h2>
-    <h2>{rez.basics.email}</h2>
-    <h2>{rez.basics.phone}</h2>
-  </section>
+  <section class="filler"></section>
 </main>
+<footer class="me">
+  <div class="me__gallery">
+    <img src="images/{profilePics[randomNumber]}" alt="me" />
+  </div>
+  <h2>{rez.basics.label}</h2>
+  <EmailLink
+    email={rez.basics.email}
+    subject="Hi Trey"
+    body="We would like you to help with our current project"
+  />
+  <CallLink phoneNumber={rez.basics.phone} displayName={rez.basics.name} />
+</footer>
 
 <style>
+  :root {
+    --gunmetal: #122c34ff;
+    --indigo-dye: #224870ff;
+    --marian-blue: #2a4494ff;
+    --picton-blue: #4ea5d9ff;
+    --robin-egg-blue: #44cfcbff;
+    --scroll-animation-top-padding: 122vh;
+    --clr-bg: var(--marian-blue);
+  }
+  .fade-in {
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s
+      both;
+    animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s both;
+  }
+  .fade-out {
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s
+      reverse both;
+    animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s reverse
+      both;
+  }
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   @keyframes sticky-parallax-header-move-and-size {
     from {
       background-position: 50% 0;
       height: 100vh;
       font-size: calc(4vw + 1em);
+      color: #fdfd66;
     }
     to {
       background-position: 50% 100%;
-      background-color: #0b1584;
+      background-color: var(--gunmetal);
       color: #fff;
-      height: 13vh;
+      height: 12vh;
       font-size: 1rem;
     }
   }
@@ -221,9 +328,15 @@
     animation: sticky-parallax-header-move-and-size linear forwards;
     animation-timeline: scroll();
     animation-range: 0vh 90vh;
+
+    padding-left: 1.2rem;
+    z-index: 9999;
   }
 
   .card {
+    position: sticky;
+    top: 16vh;
+
     --index0: calc(var(--index) - 1); /* 0-based index */
     --reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
     --reverse-index0: calc(
@@ -238,8 +351,26 @@
   }
 
   #cards {
-    --numcards: 4;
+    --numcards: 5;
     view-timeline-name: --cards-element-scrolls-in-body;
+    list-style: none;
+    /* padding-top: calc(var(--scroll-animation-top-padding)); */
+  }
+
+  #card_0 {
+    --index: 0;
+  }
+  #card_1 {
+    --index: 1;
+  }
+  #card_2 {
+    --index: 2;
+  }
+  #card_3 {
+    --index: 3;
+  }
+  #card_4 {
+    --index: 4;
   }
 
   .card__content {
@@ -248,12 +379,61 @@
 
     animation: linear scale forwards;
     animation-timeline: --cards-element-scrolls-in-body;
-    animation-range: exit-crossing var(--start-range) exit-crossing
-      var(--end-range);
+    animation-range: exit-crossing calc(10vh + --scroll-animation-top-padding);
+
+    box-shadow:
+      0 0.2em 1em rgba(0, 0, 0, 0.1),
+      0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    transform-origin: 50% 0%;
+    will-change: transform;
+  }
+  .card__content img {
+    grid-area: img;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card__content div {
+    grid-area: text;
+    padding: 2rem;
   }
   main {
-    padding-top: 133vh;
+    padding-top: var(--scroll-animation-top-padding);
     font-family: Arial, sans-serif;
+    background-color: var(--clr-bg);
+  }
+  .filler {
+    height: 60vh;
+    background-color: var(--clr-bg);
+  }
+  footer.me {
+    background-color: var(--clr-bg);
+    padding-bottom: 55vh;
+    padding-top: 33vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .me .me__gallery {
+    position: relative;
+    height: 100vh;
+  }
+  .me .me__gallery img {
+    border-radius: 100%;
+    position: absolute;
+    width: 24rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   /* Print styles */
