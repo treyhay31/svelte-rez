@@ -51,11 +51,10 @@
           "At the bank I've been involved with several different teams dealing with a broad range of tech. We support ecommerce, mobile apps, payment terminals, and most recently technology governance.",
         website: "https://www.elavon.com/index.html",
         highlights: [
-          "Created entire end-to-end functional test suite using Playwright, increasing speed of test cycle from 30 mins down to 1 min",
           "Lead engineer for team that created a software governance application that increases compliance and time to market for 1,000's of developers",
+          "Created entire end-to-end functional test suite using Playwright, increasing speed of test cycle from 30 mins down to 1 min",
           "Led team that placed in the top 5 for our company's internal MS Teams Application hackathon",
-          "In charge of a team of 10 developers where we switched secrets over to Hashicorp Vault for 10+ applications",
-          "Enhanced & maintained applications that support payment processing across windows, web, iOS, and Android platorms",
+          "In charge of a team of 10 developers where we moved application builds from local machines to jenkins, providing best practices for security, compliance, scanning, and deployment",
           "Facilitated cloud-to-cloud migration to Azure for suite of microservices, bringing our applications into compliance with company standards",
           "Engineered a tool to automate A11Y scans & aggregation of findings using Selenium for .NET before the company had a solution in place",
         ],
@@ -234,14 +233,14 @@
     <h1 class="fade-in">Thanks for scrolling!</h1>
   {/if}
 </header>
-<main>
+<main class="font-regular">
   <section class="work">
     <ul id="cards">
       {#each rez.work as job, index}
         <li class="card" id="card_{index}">
           <article class="card__content">
             <div class="highlights">
-              <h3>
+              <h3 class="font-header">
                 {job.position},
                 <a href={job.website} target="_blank">
                   {job.company}
@@ -439,7 +438,7 @@
     background: rgb(255, 255, 255);
     color: rgb(10, 5, 7);
     border-radius: 1em;
-    height: 70vh;
+    height: 41rem;
 
     overflow: hidden;
     display: grid;
@@ -469,13 +468,24 @@
     grid-area: text;
     padding: 2rem;
   }
+  .card__content .highlights h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .card__content .highlights p {
+    font-size: 1.4rem;
+  }
   .card__content .highlights li {
+    font-size: 1.2rem;
     padding-left: 0.6rem;
     padding-bottom: 0.5rem;
+    line-height: 1.7rem;
+  }
+  .card__content .highlights li::marker {
+    font-size: 2rem;
   }
   main {
     padding-top: var(--scroll-animation-top-padding);
-    font-family: Arial, sans-serif;
     background-color: var(--clr-bg);
   }
   .filler {
