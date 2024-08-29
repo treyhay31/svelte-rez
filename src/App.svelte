@@ -277,16 +277,16 @@
   <section class="filler"></section>
 </main>
 <footer class="me">
-  <div class="me__gallery">
-    <img src="images/{profilePics[randomNumber]}" alt="me" />
-  </div>
-  <h2>{rez.basics.label}</h2>
   <EmailLink
     email={rez.basics.email}
     subject="Hi Trey"
-    body="We would like you to help with our current project"
+    body="We would like you to help with our current project..."
   />
   <CallLink phoneNumber={rez.basics.phone} displayName={rez.basics.name} />
+  <h2>{rez.basics.label}</h2>
+  <div class="me__gallery">
+    <img src="images/{profilePics[randomNumber]}" alt="me" />
+  </div>
 </footer>
 
 <style>
@@ -351,7 +351,7 @@
       background-position: 50% 100%;
       background-color: var(--gunmetal);
       color: #fff;
-      height: 12vh;
+      height: 5rem;
       font-size: 1rem;
     }
   }
@@ -493,22 +493,26 @@
     background-color: var(--clr-bg);
   }
   footer.me {
+    padding-top: 30vh;
+    padding-left: 30vw;
     background-color: var(--clr-bg);
-    padding-bottom: 55vh;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 36rem 36rem;
+    place-items: center;
+    place-content: center;
   }
   .me .me__gallery {
+    width: 100%;
+    height: 100%;
     position: relative;
-    height: 100vh;
   }
   .me .me__gallery img {
-    border-radius: 100%;
-    position: absolute;
     width: 24rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-top-left-radius: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 
   /* Print styles */
