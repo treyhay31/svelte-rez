@@ -40,6 +40,7 @@
     },
     work: [
       {
+        colors: ["#0c2174", "#fff", "#c7001f"],
         pic: "usbank-dark.png",
         picAlt: "U.S. Bank logo",
         position: "Lead Software Engineer",
@@ -50,19 +51,17 @@
           "At the bank I've been involved with several different teams dealing with a broad range of tech. We support ecommerce, mobile apps, payment terminals, and most recently technology governance.",
         website: "https://www.elavon.com/index.html",
         highlights: [
-          "Created entire end-to-end functional test suite using Playwright, shrinking our testing from around 30 mins per cycle down to 1 min per cycle",
-          "Handled requirements gathering to production deployment for features in our governance app which increases compliance measures and decreases time to production for 1,000s of developers",
+          "Created entire end-to-end functional test suite using Playwright, increasing speed of test cycle from 30 mins down to 1 min",
+          "Lead engineer for team that created a software governance application that increases compliance and time to market for 1,000's of developers",
           "Led team that placed in the top 5 for our company's internal MS Teams Application hackathon",
-          "Led team of 10 developers on new secret management using Hashicorp Vault for wide range of applications",
+          "In charge of a team of 10 developers where we switched secrets over to Hashicorp Vault for 10+ applications",
           "Enhanced & maintained applications that support payment processing across windows, web, iOS, and Android platorms",
-          "Improved developer workflow with scripts that enforce standardizations and automate common tasks in js, python, bash, batch, and powershell",
-          "Implemented robust DevOps pipelines for hundreds of code repositories",
-          "Increased test coverage and implemented secure code practices across legacy code bases",
-          "Facilitated cloud-to-cloud migration to Azure for suite of microservices",
-          "Led team of five QA engineers on A11Y automated scan & aggregation of accessibility findings using Selenium for .NET",
+          "Facilitated cloud-to-cloud migration to Azure for suite of microservices, bringing our applications into compliance with company standards",
+          "Engineered a tool to automate A11Y scans & aggregation of findings using Selenium for .NET before the company had a solution in place",
         ],
       },
       {
+        colors: ["#225fb2", "#fff", "#225fb2"],
         pic: "captech-dark.png",
         picAlt: "CapTech logo",
         position: "Senior Consultant",
@@ -73,12 +72,13 @@
           "Our team helped bring a cloud solution and proper development best practices to clients of all levels of expertise.",
         website: "https://www.captechconsulting.com/",
         highlights: [
-          "Supported a lift-and-shift cloud migration to AWS using terraform",
-          "Provisioned windows host servers using Powershell DSC for declarative automation",
-          "Automated internal API challenge framework",
+          "Managed the cloud migration for 4 client windows applications to AWS using terraform",
+          "Developed scripts and jobs to provision windows host servers using Powershell DSC",
+          "Automated internal API challenge framework, increasing company consultant knowledge of API experties",
         ],
       },
       {
+        colors: ["#b5211d", "#d9dddf", "#b5211d"],
         pic: "dfa.jpg",
         picAlt: "Dimensional Fund Advisors logo",
         position: "Software Developer",
@@ -89,12 +89,14 @@
           "Our team handled many internal applications for the portfolio managers and traders. On top of addressing bugs and feature requests, we automated integration pipelines and greatly shrank the level of effort required for deployments.",
         website: "https://www.dimensional.com/",
         highlights: [
+          "Designed, developed, documented, and deployed an application for market exposure reporting with rich UI table interactivity (saving precious user time)",
           "Built and maintained .NET applications for trading & portfolio management processes",
-          "Increased test coverage from 0% to 100% on one of our primary trading applications",
-          "Automated deployment and server provisioning for multiple applications, eliminating human error",
+          "Increased test coverage from 0% to 100% on one of our primary trading applications, identifying and fixing many bugs",
+          "Automated deployment and server provisioning for multiple applications, eliminating human error and saving hours per deployment",
         ],
       },
       {
+        colors: ["#0c2174", "#fff", "#c7001f"],
         pic: "usbank-dark.png",
         picAlt: "U.S. Bank logo (acquired ETS)",
         position: "Software Developer",
@@ -105,11 +107,14 @@
           "Our development team developed online checkout solutions and peer to peer payments for customers.",
         website: "https://elavonpayments.com/",
         highlights: [
-          "Developed & maintained Web API for company peer-to-peer payment platform",
-          "Developed SDK for company consumer-to-business payment platform",
+          "Provided support for our online hosted payment solution which completed 1,000's of transactions monthly",
+          "In charge of supplying transactional reporting on a daily & monthly basis for our customers, involving stored procedures, API endpoints, and batch jobs",
+          "Developed & maintained web API for our peer-to-peer payment platform",
+          "Contributed to our SDK for our consumer-to-business payment platform",
         ],
       },
       {
+        colors: ["#86bc24", "#0f0b0b", "#1e3a51"],
         pic: "deloitte.png",
         picAlt: "Deloitte logo",
         position: "Consultant",
@@ -121,6 +126,8 @@
         website: "https://www2.deloitte.com/us/en.html",
         highlights: [
           "Used tools: MS Excel, VBA, SAS, and ACL to bring reconcile data and bring insights to clients",
+          "Managed the daily calculations for client financials and provided statistical analysis",
+          "Wrote VBA code behind Excel multiple spreadsheets to automate the monthly close process, saving 16+ hours every month",
         ],
       },
     ],
@@ -219,12 +226,12 @@
       <br />
       No, the honor is all mine!
     </h1>
-  {:else if scrollY >= 615 && scrollY < 1600}
+  {:else if scrollY >= 615 && scrollY < 2000}
     <h1 class="fade-in">Stuff I've done... and still do!</h1>
-  {:else if scrollY >= 1600 && scrollY < 2400}
-    <h1 class="fade-in">This is the stuff I have a hard time remembering</h1>
+  {:else if scrollY >= 2000 && scrollY < 3000}
+    <h1 class="fade-in">A long time ago, in a cubicle far, far away...</h1>
   {:else}
-    <h1 class="fade-in">...That's about it!</h1>
+    <h1 class="fade-in">Thanks for scrolling!</h1>
   {/if}
 </header>
 <main>
@@ -233,9 +240,12 @@
       {#each rez.work as job, index}
         <li class="card" id="card_{index}">
           <article class="card__content">
-            <div>
+            <div class="highlights">
               <h3>
-                {job.position}, {job.company}
+                {job.position},
+                <a href={job.website} target="_blank">
+                  {job.company}
+                </a>
                 ({job.startDate} - {job.endDate})
               </h3>
               <p>{job.summary}</p>
@@ -245,7 +255,21 @@
                 {/each}
               </ul>
             </div>
-            <img src="images/{job.pic}" alt={job.picAlt} />
+            <div class="brand">
+              <div
+                style="--company-color-1: {job.colors[0]};"
+                class="company-color-1"
+              ></div>
+              <div
+                style="--company-color-2: {job.colors[1]};"
+                class="company-color-2"
+              ></div>
+              <div
+                style="--company-color-3: {job.colors[2]};"
+                class="company-color-3"
+              ></div>
+            </div>
+            <!-- <img src="images/{job.pic}" alt={job.picAlt} /> -->
           </article>
         </li>
       {/each}
@@ -275,6 +299,19 @@
     --robin-egg-blue: #44cfcbff;
     --scroll-animation-top-padding: 122vh;
     --clr-bg: var(--marian-blue);
+    --list-style-type: "\\1F389";
+  }
+  .company-color-1 {
+    background-color: var(--company-color-1);
+    clip-path: polygon(0% 0, 100% 0%, 100% 59%);
+  }
+  .company-color-2 {
+    background-color: var(--company-color-2);
+    clip-path: polygon(30% 0, 100% 0%, 115% 50%);
+  }
+  .company-color-3 {
+    background-color: var(--company-color-3);
+    clip-path: polygon(58% 0, 100% 0%, 100% 25%);
   }
   .fade-in {
     -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s
@@ -335,7 +372,7 @@
 
   .card {
     position: sticky;
-    top: 16vh;
+    top: calc(160px + (16px * var(--index)));
 
     --index0: calc(var(--index) - 1); /* 0-based index */
     --reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
@@ -360,17 +397,32 @@
   #card_0 {
     --index: 0;
   }
+  #card_0 .card__content .highlights ul {
+    list-style-type: "\1F449";
+  }
   #card_1 {
     --index: 1;
+  }
+  #card_1 .card__content .highlights ul {
+    list-style-type: "\1F4E2";
   }
   #card_2 {
     --index: 2;
   }
+  #card_2 .card__content .highlights ul {
+    list-style-type: "\1F680";
+  }
   #card_3 {
     --index: 3;
   }
+  #card_3 .card__content .highlights ul {
+    list-style-type: "\1F44C";
+  }
   #card_4 {
     --index: 4;
+  }
+  #card_4 .card__content .highlights ul {
+    list-style-type: "\1F389";
   }
 
   .card__content {
@@ -387,25 +439,39 @@
     background: rgb(255, 255, 255);
     color: rgb(10, 5, 7);
     border-radius: 1em;
+    height: 70vh;
 
     overflow: hidden;
     display: grid;
     grid-template-areas: "text img";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 75% 1fr;
     grid-template-rows: auto;
     align-items: stretch;
     transform-origin: 50% 0%;
     will-change: transform;
   }
-  .card__content img {
+  .card__content .brand {
     grid-area: img;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    position: relative;
   }
-  .card__content div {
+  .card__content .brand div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .card__content .highlights {
     grid-area: text;
     padding: 2rem;
+  }
+  .card__content .highlights li {
+    padding-left: 0.6rem;
+    padding-bottom: 0.5rem;
   }
   main {
     padding-top: var(--scroll-animation-top-padding);
@@ -413,13 +479,12 @@
     background-color: var(--clr-bg);
   }
   .filler {
-    height: 60vh;
+    height: 40vh;
     background-color: var(--clr-bg);
   }
   footer.me {
     background-color: var(--clr-bg);
     padding-bottom: 55vh;
-    padding-top: 33vh;
     display: grid;
     grid-template-columns: 1fr;
   }
