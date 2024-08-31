@@ -204,26 +204,36 @@
   };
   let scrollY;
   // $: console.log(scrollY);
-  let randomNumber = Math.floor(Math.random() * 6);
-  const profilePics = [
-    "profile-1.png",
-    "profile-2.png",
-    "profile-3.png",
-    "profile-4.png",
-    "profile-5.png",
-    "profile-6.jpg",
-  ];
-  console.log(randomNumber, profilePics[randomNumber]);
 </script>
 
 <svelte:window bind:scrollY />
+<!-- 
 
+[x] I would make your "No, the honor is all mine" a little 
+  smaller and maybe a different color so it all doesn't blend together.
+
+[ ] When if first loads on my laptop the words kind of run off the
+  right of the screen (more padding maybe)
+
+[ ] Make sure the emojis are centered to the text.
+
+[x] The words and imaged below the cards are 
+  hard to read and the images are not loading?
+
+[ ] Mobile would be great to have a similar effect on
+ the cards where they are large but then move 
+ into the background when you scroll.
+
+[x] Might want to try not having the dark bar at the 
+  top but the words changing is a keeper, 
+  but having it on the blue background would be more modern/clean
+-->
 <header id="sticky-parallax-header">
   {#if scrollY < 615}
     <h1 class="fade-in">
       Hi, I'm {rez.basics.name}.
       <br />
-      No, the honor is all mine!
+      <span> No, the honor is all mine! </span>
     </h1>
   {:else if scrollY >= 615 && scrollY < 2000}
     <h1 class="fade-in">Stuff I've done... and still do!</h1>
@@ -277,7 +287,7 @@
   <section class="filler"></section>
 </main>
 <footer class="me">
-  <EmailLink
+  <!-- <EmailLink
     email={rez.basics.email}
     subject="Hi Trey"
     body="We would like you to help with our current project..."
@@ -285,12 +295,86 @@
   <CallLink phoneNumber={rez.basics.phone} displayName={rez.basics.name} />
   <h2>{rez.basics.label}</h2>
   <div class="me__gallery">
-    <img src="images/{profilePics[randomNumber]}" alt="me" />
+    </div> -->
+  <div class="solar-system">
+    <div class="center">
+      <img src="images/profile.jpg" alt="me" />
+    </div>
+    <div class="orbit">
+      <div style="--delay: 0s;" class="planet planet1">
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="10"
+            y="20"
+            width="80"
+            height="60"
+            rx="5"
+            ry="5"
+            fill="#ccc"
+          />
+          <rect x="15" y="25" width="70" height="45" fill="#333" />
+          <text
+            x="25"
+            y="50"
+            font-family="monospace"
+            font-size="14"
+            fill="#0f0"
+          >
+          </text>
+          <rect x="40" y="80" width="20" height="5" fill="#ccc" />
+        </svg>
+      </div>
+      <div style="--delay: 3s;" class="planet planet2">
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="10"
+            y="20"
+            width="80"
+            height="60"
+            rx="5"
+            ry="5"
+            fill="#f0f0f0"
+            stroke="#333"
+            stroke-width="2"
+          />
+          <polyline
+            points="10,20 50,50 90,20"
+            fill="none"
+            stroke="#333"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+      <div style="--delay: 6s;" class="planet planet3">
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20,80 Q30,90 40,80 L60,40 Q70,30 80,40 L70,20 Q60,10 50,20 L30,60 Q20,70 20,80 Z"
+            fill="#333"
+          />
+        </svg>
+      </div>
+    </div>
   </div>
 </footer>
 
 <style>
   :root {
+    --delay: 0s;
     --gunmetal: #122c34ff;
     --indigo-dye: #224870ff;
     --marian-blue: #2a4494ff;
@@ -300,6 +384,73 @@
     --clr-bg: var(--marian-blue);
     --list-style-type: "\\1F389";
   }
+  @keyframes orbit {
+    0% {
+      transform: translate3d(0px, 0px, 500px) scale(1.5);
+    }
+    20% {
+      transform: translate3d(495px, -195px, 200px) scale(1);
+    }
+    25% {
+      transform: translate3d(500px, -200px, 200px) scale(1);
+    }
+    30% {
+      transform: translate3d(495px, -205px, 200px) scale(1);
+    }
+
+    50% {
+      transform: translate3d(0px, -500px, 0px) scale(0.5);
+    }
+    75% {
+      transform: translate3d(-500px, -200px, 200px) scale(1);
+    }
+    100% {
+      transform: translate3d(0px, 0px, 500px) scale(1.5);
+    }
+  }
+
+  .solar-system {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  .solar-system img {
+    border-radius: 100%;
+    width: 25vw;
+  }
+
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .orbit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: orbit 10s ease-in infinite;
+  }
+  .orbit:hover {
+    cursor: pointer;
+    animation-play-state: paused;
+  }
+
+  .planet {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+  }
+
+  .planet svg {
+    width: 100%;
+    height: 100%;
+  }
+
   .company-color-1 {
     background-color: var(--company-color-1);
     clip-path: polygon(0% 0, 100% 0%, 100% 59%);
@@ -311,6 +462,10 @@
   .company-color-3 {
     background-color: var(--company-color-3);
     clip-path: polygon(58% 0, 100% 0%, 100% 25%);
+  }
+  h1 span {
+    font-size: 0.8em;
+    color: #cbe6fa;
   }
   .fade-in {
     -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s
@@ -349,7 +504,7 @@
     }
     to {
       background-position: 50% 100%;
-      background-color: var(--gunmetal);
+      background-color: var(--clr-bg);
       color: #fff;
       height: 5rem;
       font-size: 1rem;
@@ -359,13 +514,14 @@
   #sticky-parallax-header {
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: 98vw;
 
     animation: sticky-parallax-header-move-and-size linear forwards;
     animation-timeline: scroll();
     animation-range: 0vh 90vh;
 
     padding-left: 1.2rem;
+    padding-right: 1.2rem;
     z-index: 9999;
   }
 
@@ -501,6 +657,12 @@
     grid-template-rows: 36rem 36rem;
     place-items: center;
     place-content: center;
+    background: linear-gradient(
+      170deg,
+      var(--marian-blue) 45%,
+      var(--picton-blue) 75%,
+      var(--robin-egg-blue) 100%
+    );
   }
   .me .me__gallery {
     width: 100%;
