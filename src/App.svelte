@@ -298,74 +298,113 @@
     </div> -->
   <div class="solar-system">
     <div class="center">
-      <img src="images/profile.jpg" alt="me" />
+      <img src="images/profile.png" alt="me" />
     </div>
     <div class="orbit">
       <div style="--delay: 0s;" class="planet planet1">
         <svg
-          width="100"
-          height="100"
-          viewBox="0 0 100 100"
+          fill="#1C2033"
+          width="52"
+          height="52"
+          version="1.1"
+          id="lni_lni-phone-set"
           xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 64 64"
+          style="enable-background:new 0 0 64 64;"
+          xml:space="preserve"
         >
-          <rect
-            x="10"
-            y="20"
-            width="80"
-            height="60"
-            rx="5"
-            ry="5"
-            fill="#ccc"
-          />
-          <rect x="15" y="25" width="70" height="45" fill="#333" />
-          <text
-            x="25"
-            y="50"
-            font-family="monospace"
-            font-size="14"
-            fill="#0f0"
-          >
-          </text>
-          <rect x="40" y="80" width="20" height="5" fill="#ccc" />
+          <g>
+            <path
+              d="M60.2,55.2l-1.8-18.1c-0.3-3.3-3.1-5.8-6.4-5.8H12c-3.3,0-6,2.5-6.4,5.8L3.8,55.2c-0.2,1.8,0.4,3.6,1.6,4.9
+		c1.2,1.3,2.9,2.1,4.7,2.1h43.6c1.8,0,3.5-0.8,4.7-2.1C59.8,58.8,60.3,57,60.2,55.2z M55.2,57.1c-0.4,0.4-0.9,0.6-1.4,0.6H10.2
+		c-0.5,0-1-0.2-1.4-0.6c-0.4-0.4-0.5-0.9-0.5-1.5l1.8-18.1c0.1-1,0.9-1.7,1.9-1.7h40c1,0,1.8,0.7,1.9,1.7l1.8,18.1
+		C55.7,56.2,55.6,56.7,55.2,57.1z"
+            />
+            <path
+              d="M32,39.3c-4.1,0-7.5,3.4-7.5,7.5c0,4.2,3.4,7.5,7.5,7.5c4.2,0,7.5-3.4,7.5-7.5C39.5,42.7,36.2,39.3,32,39.3z M32,49.8
+		c-1.7,0-3-1.4-3-3c0-1.7,1.4-3,3-3c1.7,0,3,1.4,3,3C35,48.5,33.7,49.8,32,49.8z"
+            />
+            <path
+              d="M6.1,20.6c0.2,4.4,4,6.7,6.6,6.7c0,0,0,0,0,0l7,0c0,0,0.1,0,0.1,0c3.2-0.2,6.4-2.3,6.4-6.7l0-1.9c3.4,0,9.9,0,13.2,0l0,1.9
+		c0,4.4,3.2,6.5,6.4,6.7c0,0,7.1,0,7.1,0c0,0,0,0,0,0c2.7,0,6.4-2.3,6.6-6.7c0-0.3,0-3.9,0-4.1c0-0.1,0-0.2,0-0.3
+		c-0.3-2.9-1.3-5.3-3.1-7.2c0,0-0.1-0.1-0.1-0.1c-2.6-2.4-5.6-3.7-7.9-4.5c-6.8-2.6-15.3-2.6-15.7-2.6c0,0,0,0,0,0
+		c-6,0.1-9.8,0.6-15.6,2.6c-2.4,0.9-5.4,2.2-8,4.5c0,0-0.1,0.1-0.1,0.1c-1.8,1.9-2.8,4.3-3.1,7.2c0,0.1,0,0.2,0,0.3
+		C6,16.7,6.1,20.2,6.1,20.6z M12.3,12.2c2-1.8,4.4-2.8,6.4-3.6c5.2-1.9,8.5-2.2,14.1-2.4c0.5,0,8.1,0.1,14.1,2.4
+		c2.1,0.8,4.5,1.8,6.4,3.6c1,1.1,1.6,2.6,1.8,4.3c0,0.3,0,3.6,0,3.9c-0.1,2.1-2.1,2.4-2.1,2.4l-6.9,0c-1-0.1-2.1-0.5-2.1-2.2l0-4.1
+		c0-1-0.6-1.9-1.6-2.1C41.7,14,24,14,23.3,14.3c-0.9,0.3-1.6,1.2-1.6,2.1l0,4.2c0,1.7-1.1,2.1-2.1,2.2l-6.9,0c0,0-2-0.3-2.1-2.3
+		c0-0.3,0-1.4,0-2.4c0-0.7,0-1.2,0-1.5C10.7,14.7,11.3,13.3,12.3,12.2z"
+            />
+          </g>
         </svg>
       </div>
       <div style="--delay: 3s;" class="planet planet2">
         <svg
-          width="100"
-          height="100"
-          viewBox="0 0 100 100"
+          fill="#1C2033"
+          width="52"
+          height="52"
+          version="1.1"
+          id="lni_lni-code"
           xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 64 64"
+          style="enable-background:new 0 0 64 64;"
+          xml:space="preserve"
         >
-          <rect
-            x="10"
-            y="20"
-            width="80"
-            height="60"
-            rx="5"
-            ry="5"
-            fill="#f0f0f0"
-            stroke="#333"
-            stroke-width="2"
-          />
-          <polyline
-            points="10,20 50,50 90,20"
-            fill="none"
-            stroke="#333"
-            stroke-width="2"
-          />
+          <g>
+            <path
+              d="M19.6,14.1c-0.9-0.8-2.4-0.7-3.2,0.2L2.6,29.9c-1.1,1.2-1.1,3.1,0,4.3l13.9,15.6c0.4,0.5,1.1,0.8,1.7,0.8
+		c0.5,0,1.1-0.2,1.5-0.6c0.9-0.8,1-2.3,0.2-3.2L6.7,32l13.1-14.7C20.7,16.3,20.6,14.9,19.6,14.1z"
+            />
+            <path
+              d="M61.4,29.9L47.5,14.3c-0.8-0.9-2.2-1-3.2-0.2s-1,2.2-0.2,3.2L57.3,32L44.2,46.7c-0.8,0.9-0.7,2.3,0.2,3.2
+		c0.4,0.4,1,0.6,1.5,0.6c0.6,0,1.2-0.3,1.7-0.8l13.9-15.6C62.5,32.9,62.5,31.1,61.4,29.9z"
+            />
+            <path
+              d="M37.9,14.4c-1.2-0.4-2.5,0.2-2.8,1.4L24.7,46.7c-0.4,1.2,0.2,2.5,1.4,2.8c0.2,0.1,0.5,0.1,0.7,0.1c0.9,0,1.8-0.6,2.1-1.5
+		l10.3-30.9C39.7,16.1,39.1,14.8,37.9,14.4z"
+            />
+          </g>
         </svg>
       </div>
       <div style="--delay: 6s;" class="planet planet3">
         <svg
-          width="100"
-          height="100"
-          viewBox="0 0 100 100"
+          fill="#1C2033"
+          width="52"
+          height="52"
+          version="1.1"
+          id="lni_lni-postcard"
           xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 64 64"
+          style="enable-background:new 0 0 64 64;"
+          xml:space="preserve"
         >
-          <path
-            d="M20,80 Q30,90 40,80 L60,40 Q70,30 80,40 L70,20 Q60,10 50,20 L30,60 Q20,70 20,80 Z"
-            fill="#333"
-          />
+          <g>
+            <path
+              d="M56,11.9H8c-3.4,0-6.2,2.8-6.2,6.2v27.7c0,3.4,2.8,6.2,6.2,6.2h48c3.4,0,6.2-2.8,6.2-6.2V18.2C62.2,14.7,59.4,11.9,56,11.9
+		z M57.8,45.8c0,1-0.8,1.8-1.8,1.8H8c-1,0-1.8-0.8-1.8-1.8V18.2c0-1,0.8-1.8,1.8-1.8h48c1,0,1.8,0.8,1.8,1.8V45.8z"
+            />
+            <path
+              d="M32,20.9c-1.2,0-2.2,1-2.2,2.2v15.3c0,1.2,1,2.2,2.2,2.2c1.2,0,2.2-1,2.2-2.2V23.1C34.2,21.9,33.2,20.9,32,20.9z"
+            />
+            <path
+              d="M11.6,33h8.9c1.2,0,2.2-1,2.2-2.2s-1-2.2-2.2-2.2h-8.9c-1.2,0-2.2,1-2.2,2.2S10.4,33,11.6,33z"
+            />
+            <path
+              d="M52,20.9h-9.4c-1.5,0-2.6,1.2-2.6,2.6v9.4c0,1.4,1.2,2.6,2.6,2.6H52c1.4,0,2.6-1.2,2.6-2.6v-9.4C54.6,22,53.4,20.9,52,20.9
+		z M50.1,31h-5.7v-5.7h5.7V31z"
+            />
+            <path
+              d="M23,36.1H11.6c-1.2,0-2.2,1-2.2,2.2s1,2.2,2.2,2.2H23c1.2,0,2.2-1,2.2-2.2S24.3,36.1,23,36.1z"
+            />
+          </g>
         </svg>
       </div>
     </div>
@@ -386,33 +425,15 @@
   }
   @keyframes orbit {
     0% {
-      transform: translate3d(0px, 0px, 500px) scale(1.5);
-    }
-    20% {
-      transform: translate3d(495px, -195px, 200px) scale(1);
-    }
-    25% {
-      transform: translate3d(500px, -200px, 200px) scale(1);
-    }
-    30% {
-      transform: translate3d(495px, -205px, 200px) scale(1);
-    }
-
-    50% {
-      transform: translate3d(0px, -500px, 0px) scale(0.5);
-    }
-    75% {
-      transform: translate3d(-500px, -200px, 200px) scale(1);
+      transform: rotate(0deg);
     }
     100% {
-      transform: translate3d(0px, 0px, 500px) scale(1.5);
+      transform: rotate(-360deg);
     }
   }
 
   .solar-system {
     position: relative;
-    width: 300px;
-    height: 300px;
   }
   .solar-system img {
     border-radius: 100%;
@@ -427,12 +448,10 @@
   }
 
   .orbit {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: orbit 10s ease-in infinite;
+    transform: rotate(45deg);
+    width: 24rem;
+    height: 24rem;
+    animation: orbit 7s linear infinite;
   }
   .orbit:hover {
     cursor: pointer;
@@ -441,14 +460,62 @@
 
   .planet {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    top: 0;
+    width: 6rem;
+    height: 6rem;
   }
 
+  @keyframes axis-spin {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  @keyframes scale-in-out-left-right {
+    0% {
+      transform: scale(2);
+      opacity: 1;
+    }
+    40%,
+    50%,
+    60% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 1;
+    }
+  }
+  .planet1 {
+    left: 0;
+    bottom: 0;
+    animation: 7s linear axis-spin infinite;
+  }
+  .planet2 {
+    right: 0;
+    top: 0;
+    animation: 7s linear axis-spin infinite;
+  }
+  .planet3 {
+    right: 0;
+    bottom: 0;
+    animation: 7s linear axis-spin infinite;
+  }
   .planet svg {
     width: 100%;
     height: 100%;
+  }
+  .planet1 svg {
+    animation: 7s linear 1s scale-in-out-left-right infinite;
+  }
+  .planet2 svg {
+    animation: 7s linear 3s scale-in-out-left-right infinite;
+  }
+  .planet3 svg {
+    animation: 7s linear 6s scale-in-out-left-right infinite;
   }
 
   .company-color-1 {
@@ -645,16 +712,14 @@
     background-color: var(--clr-bg);
   }
   .filler {
-    height: 40vh;
+    height: 10rem;
     background-color: var(--clr-bg);
   }
   footer.me {
-    padding-top: 30vh;
-    padding-left: 30vw;
+    height: 50rem;
     background-color: var(--clr-bg);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 36rem 36rem;
+    grid-template-columns: 1fr;
     place-items: center;
     place-content: center;
     background: linear-gradient(
@@ -663,18 +728,6 @@
       var(--picton-blue) 75%,
       var(--robin-egg-blue) 100%
     );
-  }
-  .me .me__gallery {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-  .me .me__gallery img {
-    width: 24rem;
-    border-top-left-radius: 12px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
 
   /* Print styles */
