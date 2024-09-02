@@ -75,6 +75,7 @@
 <style>
   .phone-component {
     position: relative;
+    z-index: 100;
   }
   svg {
     cursor: pointer;

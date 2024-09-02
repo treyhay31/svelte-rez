@@ -427,7 +427,7 @@
     position: absolute;
     width: 21rem;
     left: 7rem;
-    z-index: 99999;
+    z-index: 10;
     border-radius: 1rem;
   }
   .me__details .me__details__panel-left {
