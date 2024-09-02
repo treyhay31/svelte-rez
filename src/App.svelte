@@ -10,7 +10,7 @@
     },
     basics: {
       name: "Trey Hayden",
-      label: "Software Engineer",
+      label: "Dev",
       picture:
         "https://lh3.googleusercontent.com/MS0VpWuzC_0WevZjP5khDTcHSn9VhgqaDXo7Vatwfmae1LarwULPDTtIXRFJ9LXZOAV3YAyTSgF3IMqfLK36Ymhp8jlQMVPiYvArVUPW1JFMCvw0BFcL4Ovg9jcesXUU-JKI--M0dcU=s200-p-k",
       email: "treyhay@gmail.com",
@@ -287,16 +287,21 @@
   <section class="filler"></section>
 </main>
 <footer class="me">
-  <!-- <EmailLink
-    email={rez.basics.email}
-    subject="Hi Trey"
-    body="We would like you to help with our current project..."
-  />
-  <CallLink phoneNumber={rez.basics.phone} displayName={rez.basics.name} />
-  <h2>{rez.basics.label}</h2>
-  <div class="me__gallery">
-    </div> -->
-  <div class="solar-system">
+  <div class="me__details">
+    <img src="images/profile.png" alt="me" />
+    <div class="me__details__panel-left">
+      <h2>Software <br /> Engineer</h2>
+    </div>
+    <div class="me__details__panel-right">
+      <EmailLink
+        email={rez.basics.email}
+        subject="Hi Trey"
+        body="We would like you to help with our current project..."
+      />
+      <CallLink phoneNumber={rez.basics.phone} displayName={rez.basics.name} />
+    </div>
+  </div>
+  <!-- <div class="solar-system">
     <div class="center">
       <img src="images/profile.png" alt="me" />
     </div>
@@ -408,10 +413,46 @@
         </svg>
       </div>
     </div>
-  </div>
+  </div> -->
 </footer>
 
 <style>
+  .me__details {
+    position: relative;
+    display: grid;
+    grid-template-columns: 18rem 25rem;
+    grid-template-rows: 25rem;
+  }
+  .me__details img {
+    position: absolute;
+    width: 21rem;
+    left: 7rem;
+    z-index: 99999;
+    border-radius: 1rem;
+  }
+  .me__details .me__details__panel-left {
+    background: #fff;
+    align-self: start;
+    width: 18rem;
+    border-radius: 1rem;
+    margin-top: 7rem;
+    padding-left: 1.5rem;
+    margin-left: 2rem;
+  }
+  .me__details .me__details__panel-right {
+    background: #fff;
+    height: 19rem;
+    width: 13rem;
+    justify-self: start;
+    align-self: end;
+    border-top-right-radius: 100rem;
+    border-bottom-right-radius: 100rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    place-content: center;
+    place-items: center;
+    margin-left: 2rem;
+  }
   :root {
     --delay: 0s;
     --gunmetal: #122c34ff;
@@ -615,36 +656,51 @@
     list-style: none;
     /* padding-top: calc(var(--scroll-animation-top-padding)); */
   }
+  .card__content .highlights ul {
+    list-style: none;
+  }
+  .card__content .highlights ul li {
+    position: relative;
+    font-size: 1.4rem;
+    padding-left: 2.6rem;
+    padding-bottom: 2.5rem;
+  }
+  .card__content .highlights ul li::before {
+    font-size: 3rem;
+    position: absolute;
+    top: 0.29rem;
+    left: -2.2rem;
+  }
 
   #card_0 {
     --index: 0;
   }
-  #card_0 .card__content .highlights ul {
-    list-style-type: "\1F449";
+  #card_0 .card__content .highlights ul li::before {
+    content: "\1F449";
   }
   #card_1 {
     --index: 1;
   }
-  #card_1 .card__content .highlights ul {
-    list-style-type: "\1F4E2";
+  #card_1 .card__content .highlights ul li::before {
+    content: "\1F4E2";
   }
   #card_2 {
     --index: 2;
   }
-  #card_2 .card__content .highlights ul {
-    list-style-type: "\1F680";
+  #card_2 .card__content .highlights ul li::before {
+    content: "\1F680";
   }
   #card_3 {
     --index: 3;
   }
-  #card_3 .card__content .highlights ul {
-    list-style-type: "\1F44C";
+  #card_3 .card__content .highlights ul li::before {
+    content: "\1F44C";
   }
   #card_4 {
     --index: 4;
   }
-  #card_4 .card__content .highlights ul {
-    list-style-type: "\1F389";
+  #card_4 .card__content .highlights ul li::before {
+    content: "\1F389";
   }
 
   .card__content {
@@ -719,7 +775,7 @@
     height: 50rem;
     background-color: var(--clr-bg);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 80vw;
     place-items: center;
     place-content: center;
     background: linear-gradient(
