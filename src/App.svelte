@@ -231,13 +231,13 @@
 <header id="sticky-parallax-header">
   {#if scrollY < 615}
     <h1 class="fade-in">
-      Hi, I'm {rez.basics.name}.
+      Hi, I'm {rez.basics.name}
       <br />
       <span> No, the honor is all mine! </span>
     </h1>
   {:else if scrollY >= 615 && scrollY < 2000}
     <h1 class="fade-in">Stuff I've done... and still do!</h1>
-  {:else if scrollY >= 2000 && scrollY < 3000}
+  {:else if scrollY >= 2000 && scrollY < 3400}
     <h1 class="fade-in">A long time ago, in a cubicle far, far away...</h1>
   {:else}
     <h1 class="fade-in">Thanks for scrolling!</h1>
@@ -572,7 +572,7 @@
     clip-path: polygon(58% 0, 100% 0%, 100% 25%);
   }
   h1 span {
-    font-size: 0.8em;
+    font-size: 0.6em;
     color: #cbe6fa;
   }
   .fade-in {

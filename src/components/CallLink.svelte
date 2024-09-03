@@ -83,15 +83,26 @@
   button {
     background-color: transparent;
     cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 2rem;
   }
   .phone {
     position: absolute;
-    bottom: -3rem;
-    right: -7rem;
+    bottom: -6rem;
+    right: -32rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
     place-content: center;
+
+    border-radius: 2rem;
+    border-top-left-radius: 3px;
+    background: var(--robin-egg-blue);
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    line-height: 3rem;
   }
   a {
     font-size: 2rem;
