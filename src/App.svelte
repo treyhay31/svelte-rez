@@ -1,10 +1,16 @@
 <script>
   //TODO: create svg in procreate for favicon and maybe other images on the site
   //TODO: find profile picture of me being old
+
   import CallLink from "./components/CallLink.svelte";
   import EmailLink from "./components/EmailLink.svelte";
   //TODO: at least try a background slowmotion video
   const rez = {
+    doc: {
+      googleDocUrl: `https://docs.google.com/document/d/1sfP12oE6HQrDXtBLNhZ1DZQAy5PMWvJB20rh55YLvMo/edit?usp=sharing`,
+      localDocx: "docs/Trey_Hayden_Resume.docx",
+      localPdf: "docs/Trey_Hayden_Resume.pdf",
+    },
     meta: {
       theme: "elegant",
     },
@@ -203,31 +209,26 @@
     references: [],
   };
   let scrollY;
+
   // $: console.log(scrollY);
+
+  let showPrintView = false;
+
+  async function print() {
+    const response = await fetch(rez.doc.localPdf);
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "resume.pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
 </script>
 
 <svelte:window bind:scrollY />
-<!-- 
-
-[x] I would make your "No, the honor is all mine" a little 
-  smaller and maybe a different color so it all doesn't blend together.
-
-[ ] When if first loads on my laptop the words kind of run off the
-  right of the screen (more padding maybe)
-
-[ ] Make sure the emojis are centered to the text.
-
-[x] The words and imaged below the cards are 
-  hard to read and the images are not loading?
-
-[ ] Mobile would be great to have a similar effect on
- the cards where they are large but then move 
- into the background when you scroll.
-
-[x] Might want to try not having the dark bar at the 
-  top but the words changing is a keeper, 
-  but having it on the blue background would be more modern/clean
--->
 <header id="sticky-parallax-header">
   {#if scrollY < 615}
     <h1 class="fade-in">
@@ -244,6 +245,18 @@
   {/if}
 </header>
 <main class="font-regular">
+  <button on:click={print} class="printer-button">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      fill="#000000"
+      viewBox="0 0 256 256"
+      ><path
+        d="M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z"
+      ></path></svg
+    >
+  </button>
   <section class="work">
     <ul id="cards">
       {#each rez.work as job, index}
@@ -286,6 +299,7 @@
   </section>
   <section class="filler"></section>
 </main>
+
 <footer class="me">
   <div class="me__details">
     <img src="images/profile.png" alt="me" />
@@ -308,16 +322,16 @@
     <div class="orbit">
       <div style="--delay: 0s;" class="planet planet1">
         <svg
-          fill="#1C2033"
-          width="52"
-          height="52"
-          version="1.1"
-          id="lni_lni-phone-set"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 64 64"
+        fill="#1C2033"
+        width="52"
+        height="52"
+        version="1.1"
+        id="lni_lni-phone-set"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 64 64"
           style="enable-background:new 0 0 64 64;"
           xml:space="preserve"
         >
@@ -327,13 +341,13 @@
 		c1.2,1.3,2.9,2.1,4.7,2.1h43.6c1.8,0,3.5-0.8,4.7-2.1C59.8,58.8,60.3,57,60.2,55.2z M55.2,57.1c-0.4,0.4-0.9,0.6-1.4,0.6H10.2
 		c-0.5,0-1-0.2-1.4-0.6c-0.4-0.4-0.5-0.9-0.5-1.5l1.8-18.1c0.1-1,0.9-1.7,1.9-1.7h40c1,0,1.8,0.7,1.9,1.7l1.8,18.1
 		C55.7,56.2,55.6,56.7,55.2,57.1z"
-            />
-            <path
-              d="M32,39.3c-4.1,0-7.5,3.4-7.5,7.5c0,4.2,3.4,7.5,7.5,7.5c4.2,0,7.5-3.4,7.5-7.5C39.5,42.7,36.2,39.3,32,39.3z M32,49.8
+    />
+    <path
+    d="M32,39.3c-4.1,0-7.5,3.4-7.5,7.5c0,4.2,3.4,7.5,7.5,7.5c4.2,0,7.5-3.4,7.5-7.5C39.5,42.7,36.2,39.3,32,39.3z M32,49.8
 		c-1.7,0-3-1.4-3-3c0-1.7,1.4-3,3-3c1.7,0,3,1.4,3,3C35,48.5,33.7,49.8,32,49.8z"
-            />
-            <path
-              d="M6.1,20.6c0.2,4.4,4,6.7,6.6,6.7c0,0,0,0,0,0l7,0c0,0,0.1,0,0.1,0c3.2-0.2,6.4-2.3,6.4-6.7l0-1.9c3.4,0,9.9,0,13.2,0l0,1.9
+    />
+    <path
+    d="M6.1,20.6c0.2,4.4,4,6.7,6.6,6.7c0,0,0,0,0,0l7,0c0,0,0.1,0,0.1,0c3.2-0.2,6.4-2.3,6.4-6.7l0-1.9c3.4,0,9.9,0,13.2,0l0,1.9
 		c0,4.4,3.2,6.5,6.4,6.7c0,0,7.1,0,7.1,0c0,0,0,0,0,0c2.7,0,6.4-2.3,6.6-6.7c0-0.3,0-3.9,0-4.1c0-0.1,0-0.2,0-0.3
 		c-0.3-2.9-1.3-5.3-3.1-7.2c0,0-0.1-0.1-0.1-0.1c-2.6-2.4-5.6-3.7-7.9-4.5c-6.8-2.6-15.3-2.6-15.7-2.6c0,0,0,0,0,0
 		c-6,0.1-9.8,0.6-15.6,2.6c-2.4,0.9-5.4,2.2-8,4.5c0,0-0.1,0.1-0.1,0.1c-1.8,1.9-2.8,4.3-3.1,7.2c0,0.1,0,0.2,0,0.3
@@ -341,79 +355,79 @@
 		c2.1,0.8,4.5,1.8,6.4,3.6c1,1.1,1.6,2.6,1.8,4.3c0,0.3,0,3.6,0,3.9c-0.1,2.1-2.1,2.4-2.1,2.4l-6.9,0c-1-0.1-2.1-0.5-2.1-2.2l0-4.1
 		c0-1-0.6-1.9-1.6-2.1C41.7,14,24,14,23.3,14.3c-0.9,0.3-1.6,1.2-1.6,2.1l0,4.2c0,1.7-1.1,2.1-2.1,2.2l-6.9,0c0,0-2-0.3-2.1-2.3
 		c0-0.3,0-1.4,0-2.4c0-0.7,0-1.2,0-1.5C10.7,14.7,11.3,13.3,12.3,12.2z"
-            />
-          </g>
-        </svg>
-      </div>
-      <div style="--delay: 3s;" class="planet planet2">
-        <svg
-          fill="#1C2033"
-          width="52"
-          height="52"
-          version="1.1"
-          id="lni_lni-code"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 64 64"
-          style="enable-background:new 0 0 64 64;"
-          xml:space="preserve"
-        >
-          <g>
-            <path
-              d="M19.6,14.1c-0.9-0.8-2.4-0.7-3.2,0.2L2.6,29.9c-1.1,1.2-1.1,3.1,0,4.3l13.9,15.6c0.4,0.5,1.1,0.8,1.7,0.8
-		c0.5,0,1.1-0.2,1.5-0.6c0.9-0.8,1-2.3,0.2-3.2L6.7,32l13.1-14.7C20.7,16.3,20.6,14.9,19.6,14.1z"
-            />
-            <path
-              d="M61.4,29.9L47.5,14.3c-0.8-0.9-2.2-1-3.2-0.2s-1,2.2-0.2,3.2L57.3,32L44.2,46.7c-0.8,0.9-0.7,2.3,0.2,3.2
-		c0.4,0.4,1,0.6,1.5,0.6c0.6,0,1.2-0.3,1.7-0.8l13.9-15.6C62.5,32.9,62.5,31.1,61.4,29.9z"
-            />
-            <path
-              d="M37.9,14.4c-1.2-0.4-2.5,0.2-2.8,1.4L24.7,46.7c-0.4,1.2,0.2,2.5,1.4,2.8c0.2,0.1,0.5,0.1,0.7,0.1c0.9,0,1.8-0.6,2.1-1.5
-		l10.3-30.9C39.7,16.1,39.1,14.8,37.9,14.4z"
-            />
-          </g>
-        </svg>
-      </div>
-      <div style="--delay: 6s;" class="planet planet3">
-        <svg
-          fill="#1C2033"
-          width="52"
-          height="52"
-          version="1.1"
-          id="lni_lni-postcard"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 64 64"
-          style="enable-background:new 0 0 64 64;"
-          xml:space="preserve"
-        >
-          <g>
-            <path
-              d="M56,11.9H8c-3.4,0-6.2,2.8-6.2,6.2v27.7c0,3.4,2.8,6.2,6.2,6.2h48c3.4,0,6.2-2.8,6.2-6.2V18.2C62.2,14.7,59.4,11.9,56,11.9
-		z M57.8,45.8c0,1-0.8,1.8-1.8,1.8H8c-1,0-1.8-0.8-1.8-1.8V18.2c0-1,0.8-1.8,1.8-1.8h48c1,0,1.8,0.8,1.8,1.8V45.8z"
-            />
-            <path
-              d="M32,20.9c-1.2,0-2.2,1-2.2,2.2v15.3c0,1.2,1,2.2,2.2,2.2c1.2,0,2.2-1,2.2-2.2V23.1C34.2,21.9,33.2,20.9,32,20.9z"
-            />
-            <path
-              d="M11.6,33h8.9c1.2,0,2.2-1,2.2-2.2s-1-2.2-2.2-2.2h-8.9c-1.2,0-2.2,1-2.2,2.2S10.4,33,11.6,33z"
-            />
-            <path
-              d="M52,20.9h-9.4c-1.5,0-2.6,1.2-2.6,2.6v9.4c0,1.4,1.2,2.6,2.6,2.6H52c1.4,0,2.6-1.2,2.6-2.6v-9.4C54.6,22,53.4,20.9,52,20.9
-		z M50.1,31h-5.7v-5.7h5.7V31z"
-            />
-            <path
-              d="M23,36.1H11.6c-1.2,0-2.2,1-2.2,2.2s1,2.2,2.2,2.2H23c1.2,0,2.2-1,2.2-2.2S24.3,36.1,23,36.1z"
-            />
-          </g>
-        </svg>
-      </div>
+    />
+    </g>
+    </svg>
     </div>
-  </div> -->
+    <div style="--delay: 3s;" class="planet planet2">
+      <svg
+      fill="#1C2033"
+      width="52"
+      height="52"
+      version="1.1"
+      id="lni_lni-code"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 64 64"
+      style="enable-background:new 0 0 64 64;"
+      xml:space="preserve"
+      >
+      <g>
+        <path
+        d="M19.6,14.1c-0.9-0.8-2.4-0.7-3.2,0.2L2.6,29.9c-1.1,1.2-1.1,3.1,0,4.3l13.9,15.6c0.4,0.5,1.1,0.8,1.7,0.8
+        c0.5,0,1.1-0.2,1.5-0.6c0.9-0.8,1-2.3,0.2-3.2L6.7,32l13.1-14.7C20.7,16.3,20.6,14.9,19.6,14.1z"
+        />
+        <path
+        d="M61.4,29.9L47.5,14.3c-0.8-0.9-2.2-1-3.2-0.2s-1,2.2-0.2,3.2L57.3,32L44.2,46.7c-0.8,0.9-0.7,2.3,0.2,3.2
+        c0.4,0.4,1,0.6,1.5,0.6c0.6,0,1.2-0.3,1.7-0.8l13.9-15.6C62.5,32.9,62.5,31.1,61.4,29.9z"
+        />
+        <path
+              d="M37.9,14.4c-1.2-0.4-2.5,0.2-2.8,1.4L24.7,46.7c-0.4,1.2,0.2,2.5,1.4,2.8c0.2,0.1,0.5,0.1,0.7,0.1c0.9,0,1.8-0.6,2.1-1.5
+              l10.3-30.9C39.7,16.1,39.1,14.8,37.9,14.4z"
+            />
+          </g>
+          </svg>
+          </div>
+          <div style="--delay: 6s;" class="planet planet3">
+            <svg
+            fill="#1C2033"
+            width="52"
+            height="52"
+            version="1.1"
+            id="lni_lni-postcard"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 64 64"
+            style="enable-background:new 0 0 64 64;"
+            xml:space="preserve"
+            >
+            <g>
+              <path
+              d="M56,11.9H8c-3.4,0-6.2,2.8-6.2,6.2v27.7c0,3.4,2.8,6.2,6.2,6.2h48c3.4,0,6.2-2.8,6.2-6.2V18.2C62.2,14.7,59.4,11.9,56,11.9
+              z M57.8,45.8c0,1-0.8,1.8-1.8,1.8H8c-1,0-1.8-0.8-1.8-1.8V18.2c0-1,0.8-1.8,1.8-1.8h48c1,0,1.8,0.8,1.8,1.8V45.8z"
+              />
+              <path
+              d="M32,20.9c-1.2,0-2.2,1-2.2,2.2v15.3c0,1.2,1,2.2,2.2,2.2c1.2,0,2.2-1,2.2-2.2V23.1C34.2,21.9,33.2,20.9,32,20.9z"
+              />
+              <path
+              d="M11.6,33h8.9c1.2,0,2.2-1,2.2-2.2s-1-2.2-2.2-2.2h-8.9c-1.2,0-2.2,1-2.2,2.2S10.4,33,11.6,33z"
+              />
+              <path
+              d="M52,20.9h-9.4c-1.5,0-2.6,1.2-2.6,2.6v9.4c0,1.4,1.2,2.6,2.6,2.6H52c1.4,0,2.6-1.2,2.6-2.6v-9.4C54.6,22,53.4,20.9,52,20.9
+              z M50.1,31h-5.7v-5.7h5.7V31z"
+              />
+              <path
+              d="M23,36.1H11.6c-1.2,0-2.2,1-2.2,2.2s1,2.2,2.2,2.2H23c1.2,0,2.2-1,2.2-2.2S24.3,36.1,23,36.1z"
+              />
+              </g>
+              </svg>
+              </div>
+              </div>
+              </div> -->
 </footer>
 
 <style>
@@ -767,6 +781,28 @@
     padding-top: var(--scroll-animation-top-padding);
     background-color: var(--clr-bg);
   }
+  main .printer-button {
+    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    padding: 0.5rem;
+    transition: all 0.3s;
+  }
+  main .printer-button:hover {
+    cursor: pointer;
+    background-color: var(--picton-blue);
+    border: 1px solid #fff;
+  }
+  main .printer-button:active {
+    cursor: pointer;
+    transform: translateY(-0.1rem) scale(0.9);
+  }
   .filler {
     height: 10rem;
     background-color: var(--clr-bg);
@@ -788,14 +824,40 @@
 
   /* Print styles */
   @media print {
+    html,
+    body,
+    main,
+    .work,
+    .cards,
+    .card,
+    .card__content,
+    .highlights {
+      background-color: #fff;
+      color: #000;
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+    }
     main {
       font-size: 12pt;
       line-height: 1.5;
-      color: #000;
       max-width: 100%;
-      padding: 0;
     }
-
+    .brand,
+    .filler {
+      display: none;
+    }
+    .font-header {
+      font-size: 16pt;
+    }
+    .card__content .highlights p,
+    .card__content .highlights ul,
+    .card__content .highlights li {
+      font-size: 12pt;
+    }
+    @page {
+      margin: 0;
+    }
     h1 {
       font-size: 18pt;
       margin-bottom: 10pt;
